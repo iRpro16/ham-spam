@@ -1,4 +1,11 @@
+# Notebook
 notebook
+
+# Environments
 .venv
+
+# Distribution / packaging
 ham_spam.egg-info
+
+# Data
 spam.csv
