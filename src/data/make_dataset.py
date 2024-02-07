@@ -1,8 +1,6 @@
 import pandas as pd
-import numpy as np
-from src.logger import logging
 from sklearn.preprocessing import LabelEncoder
-from src.utils import preprocess
+from src.pipeline.utils import preprocess
 
 class Dataset:
     def __init__(self, csv_file):
