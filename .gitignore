@@ -3,7 +3,9 @@
 
 # Distribution / packaging
 ham_spam.egg-info
-logs
 
 # Data
 spam.csv
+
+# Pkl
+models
