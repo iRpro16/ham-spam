@@ -4,6 +4,7 @@ import os
 
 class Model:
     def __init__(self):
+        # Path for to save model.pkl
         self.model_trainer_config = os.path.join("models","model.pkl")
         
     def fit_model(self, x_train_v, y_train):
@@ -17,5 +18,6 @@ class Model:
             file_path=self.model_trainer_config
         )
         '''
+    
         return self.model
     

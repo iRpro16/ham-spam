@@ -7,8 +7,5 @@ ham_spam.egg-info
 # Data
 spam.csv
 
-# Pkl
-models
-
 # Notebook
 notebooks

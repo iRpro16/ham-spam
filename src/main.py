@@ -3,6 +3,7 @@ from src.features.data_processor import DataProcessor
 from src.features.vectorizer import Vectorizer
 from src.models.train_model import Model
 from src.pipeline.utils import evaluate_model, print_metrics
+import numpy as np
 
 if __name__ == "__main__":
     # Get data
@@ -19,16 +20,17 @@ if __name__ == "__main__":
     # Vectorize
     vectorize = Vectorizer()
     X_train_tfidf, X_test_tfidf = vectorize.vector_transform(X_train, X_test)
+    
+    X_train_dense = X_train_tfidf.toarray()
+    X_test_dense = X_test_tfidf.toarray()
 
     # Model
     model = Model()
-    model_fit = model.fit_model(X_train_tfidf, y_train)
-    predict  = model_fit.predict(X_test_tfidf)
+    model.fit_model(X_train_dense, y_train)
+    predict  = model.model.predict(X_test_dense)
     
     # Store variables
     acc, pr, cm = evaluate_model(y_test, predict)
     
-    #Print metrics
+    # Print metrics
     print_metrics(acc, pr, cm)
-   
-    

@@ -35,3 +35,9 @@ def print_metrics(accuracy, precision, c_matrix):
     print('- Accuracy Score: {:.4f}'.format(accuracy))
     print('- Precision Score: {:.4f}'.format(precision))
     print('- Confusion Matrix:\n{}'.format(c_matrix))
+    
+# Load pickle
+def load_pkl(pickle_file_path):
+    with open(pickle_file_path, 'rb') as f:
+        obj = pickle.load(f)
+        return obj
