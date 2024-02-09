@@ -28,3 +28,10 @@ def save_object(file_path, obj):
     os.makedirs(dir_path, exist_ok=True)
     with open(file_path, 'wb') as file_obj:
         pickle.dump(obj, file_obj)
+        
+# Print metrics
+def print_metrics(accuracy, precision, c_matrix):
+    print('Model performance')
+    print('- Accuracy Score: {:.4f}'.format(accuracy))
+    print('- Precision Score: {:.4f}'.format(precision))
+    print('- Confusion Matrix:\n{}'.format(c_matrix))

@@ -2,7 +2,7 @@ from src.data.make_dataset import Dataset
 from src.features.data_processor import DataProcessor
 from src.features.vectorizer import Vectorizer
 from src.models.train_model import Model
-from src.pipeline.utils import evaluate_model
+from src.pipeline.utils import evaluate_model, print_metrics
 
 if __name__ == "__main__":
     # Get data
@@ -24,10 +24,11 @@ if __name__ == "__main__":
     model = Model()
     model_fit = model.fit_model(X_train_tfidf, y_train)
     predict  = model_fit.predict(X_test_tfidf)
-
+    
+    # Store variables
     acc, pr, cm = evaluate_model(y_test, predict)
-
-    print(acc)
-    print(pr)
-    print(cm)
+    
+    #Print metrics
+    print_metrics(acc, pr, cm)
+   
     
