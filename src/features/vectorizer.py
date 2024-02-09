@@ -1,10 +1,21 @@
 from sklearn.feature_extraction.text import TfidfVectorizer
 from src.pipeline.utils import save_object
 import numpy as np
+import os
+import pickle
 
 class Vectorizer:
     def __init__(self):
         self.vectorizer = TfidfVectorizer()
+        self.vectorizer_config = os.path.join('models','vectorizer.pkl')
+        
+        #Save Vectorizer
+        ''' 
+        save_object(
+            obj=self.vectorizer,
+            file_path= self.vectorizer_config
+        )
+        '''
     
     # Method to transform data into vectors
     def vector_transform(self, X_train, X_test):

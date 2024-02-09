@@ -10,9 +10,12 @@ class Model:
         self.model = SVC()
         self.model.fit(x_train_v, y_train)
         
+        # Save model
+        ''' 
         save_object(
             obj=self.model,
             file_path=self.model_trainer_config
         )
+        '''
         return self.model
     
