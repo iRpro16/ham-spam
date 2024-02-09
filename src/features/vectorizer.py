@@ -1,4 +1,5 @@
 from sklearn.feature_extraction.text import TfidfVectorizer
+from src.pipeline.utils import save_object
 import numpy as np
 
 class Vectorizer:
@@ -10,3 +11,4 @@ class Vectorizer:
         X_train_tfidf = self.vectorizer.fit_transform(X_train).toarray()
         X_test_tfidf = self.vectorizer.transform(X_test).toarray()
         return X_train_tfidf, X_test_tfidf
+    

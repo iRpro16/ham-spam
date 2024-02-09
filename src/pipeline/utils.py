@@ -2,6 +2,9 @@ import nltk
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 from sklearn.metrics import accuracy_score, precision_score, confusion_matrix
+from sklearn.svm import SVC
+import pickle
+import os
 
 # Preprocess function
 def preprocess(text):
@@ -18,3 +21,10 @@ def evaluate_model(true, predicted):
     pr_score = precision_score(true, predicted)
     con_matrix = confusion_matrix(true, predicted)
     return ac_score, pr_score, con_matrix
+
+# Save object
+def save_object(file_path, obj):
+    dir_path = os.path.dirname(file_path)
+    os.makedirs(dir_path, exist_ok=True)
+    with open(file_path, 'wb') as file_obj:
+        pickle.dump(obj, file_obj)

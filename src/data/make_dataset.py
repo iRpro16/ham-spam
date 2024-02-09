@@ -12,4 +12,9 @@ class Dataset:
         self.df.drop_duplicates(keep='first', inplace=True)
         self.df['Category'] = self.label_encoder.fit_transform(self.df['Category'])
         # Creating new column and preprocessing for vectorization
-        self.df['preprocessed_text'] = self.df['Message'].apply(preprocess).astype(str)
+        self.df['preprocessed_text'] = self.df['Message'].apply(preprocess)
+    
+    def get_features(self):
+        self.X = self.df['preprocessed_text']
+        self.y = self.df['Category']
+        return self.X, self.y
