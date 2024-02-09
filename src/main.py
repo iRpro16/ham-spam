@@ -21,6 +21,7 @@ if __name__ == "__main__":
     vectorize = Vectorizer()
     X_train_tfidf, X_test_tfidf = vectorize.vector_transform(X_train, X_test)
     
+    # Convert sparse input data to dense
     X_train_dense = X_train_tfidf.toarray()
     X_test_dense = X_test_tfidf.toarray()
 
